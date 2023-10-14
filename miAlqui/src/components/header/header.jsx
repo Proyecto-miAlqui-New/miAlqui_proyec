@@ -9,6 +9,6 @@ export const Header = () => {
       
         <Navbar />
       </div>
-    </header>
+    </header> 
   );
 };
