@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  max-width: 992px; /*para que se centre  los link del menu al medio*/
+  margin: 0 auto; /*quede todo centrado 0 arri y abaj/ auto iz y derech*/
+  margin: 40px;
+}
+
+.nav-link {
+  text-decoration: none !important;
+  margin: 20px;
+  color: rgb(21, 23, 28) !important;
+  font-family: "Times New Roman", Times, serif;
+  width: max-content; /*para que no me corte el contenido*/
+}
+.navbar-brand {
+  text-decoration: none !important;
+}
+.logo > h1 {
+  color: rgb(21, 23, 28) !important;
+  padding-left: 20px;
+}
+.logo > h1 > span {
+  color: rgb(252, 4, 68) !important;
+}
+.container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
