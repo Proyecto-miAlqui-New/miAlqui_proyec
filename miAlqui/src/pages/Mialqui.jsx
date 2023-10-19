@@ -1,8 +1,30 @@
 import React from "react";
+import { useState } from "react";
 import { Header } from "../components/header/header";
 import "./mialqui.css";
+import { ArticleList, ButtonList } from "../components";
+import data from "../data/data";
 
 export const Main = () => {
+  const allCategories = [
+    "Todo",
+    ...new Set(data.map((article) => article.category)),
+  ];
+
+  const [categories, setCategories] = useState(allCategories);
+  const [articles, setArticles] = useState(data);
+
+  const filterCategory = (category) => {
+    if (category === "Todo") {
+      setArticles(data);
+      return;
+    }
+    const filteredData = data.filter(
+      (article) => article.category === category
+    );
+    setArticles(filteredData);
+  };
+
   return (
     <>
       {/* header */}
@@ -89,31 +111,19 @@ export const Main = () => {
           </div>
           <div className="fondo-seccion"></div>
         </div>
-        <div className="fondo-seccion">
-          <section className="cta section-padding">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-md-9">
-                  <div className="cta-text">
-                    <h2 className="bold">
-                      Sabés dónde buscás, sabés con quien tratás
-                    </h2>
-                    <p className="text-white">
-                      En miAlqui vas a encontrar el ALQUILER que estás buscando,
-                      porque tenemos la oferta unificada de más de 2000
-                      corredores inmobiliarios de Formosa Capital . Además,
-                      contás con la la informacion y seguridad que nesesitas y
-                      la tranquilidad que te brinda tratar exclusivamente con
-                      profesionales matriculados.
-                    </p>
-                    <p className="text-white">
-                      <b>Cuando buscás en miAlqui, encontrás seguro.</b>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        <div className="filtroFondo">
+          {/* filtros */}
+          <div className="title">
+            <h1>
+              mi<span>Alqui</span>
+            </h1>
+            {/* Insertar logo */}
+            {/* <img src='src/img/hogar.png'/> */}
+          </div>
+
+          <ButtonList categories={categories} filterCategory={filterCategory} />
+
+          <ArticleList articles={articles} />
         </div>
       </main>
     </>
