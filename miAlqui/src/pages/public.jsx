@@ -26,7 +26,7 @@ export const Public = () => {
             <p className="lead mb-4">Aumenta las reservas</p>
             <p className="lead mb-4">Genera más ingresos</p>
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <Link to="/register">
+              <Link to="/registerAlqui">
                 <button
                   type="button"
                   className="btn btn-dark btn-lg px-4 gap-3 color"

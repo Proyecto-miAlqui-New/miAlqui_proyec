@@ -86,7 +86,7 @@ const [celular,setCelular]= useState(0);
                   name="nombre"
                   type="text"
                   className="MuiInputBase-input MuiInput-input css-mnn31"
-                  defaultValue="milagros"
+                  defaultValue=""
                 />
               </div>
 
@@ -111,7 +111,7 @@ const [celular,setCelular]= useState(0);
                   name="apellido"
                   type="text"
                   className="MuiInputBase-input MuiInput-input css-mnn31"
-                  defaultValue="villalba"
+                  defaultValue=""
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@ const [celular,setCelular]= useState(0);
                   name="dni"
                   type="number"
                   className="MuiInputBase-input MuiInput-input css-mnn31"
-                  defaultValue={45049583}
+                  defaultValue={''}
                 />
               </div>
             </div>
@@ -200,7 +200,7 @@ const [celular,setCelular]= useState(0);
                       <div className="MuiListItem-root MuiListItem-padding MuiListItem-secondaryAction css-1p66p9z">
                         <div className="MuiListItemText-root css-wdt8uk">
                           <span className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-yb0lig">
-                            soledad110203@gmail.com
+                            
                           </span>
                         </div>
                       </div>
@@ -256,16 +256,7 @@ const [celular,setCelular]= useState(0);
                 </div>
               </div>
             </div>
-            <div className="css-kn8454">
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall css-1clexno"
-                tabIndex={0}
-                type="button"
-              >
-                + Agregar otro e-mail
-                <span className="MuiTouchRipple-root css-w0pj6f" />
-              </button>
-            </div>
+            
           </div>
         </div>
         <div className="css-epgsx2">

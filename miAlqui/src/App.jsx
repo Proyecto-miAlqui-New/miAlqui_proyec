@@ -4,15 +4,18 @@ import { Public } from "./pages/public";
 import { Main } from "./pages/Mialqui";
 import { PasoTwo } from "./pages/register/pasoTwo";
 import { PasoTres } from "./pages/register/pasoTres";
+import { FormAlqui } from "./pages/registroAlquiler/RegAlqui";
+
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/home" element={<Main></Main>} />
+        <Route path="/" element={<Main></Main>} />
         <Route path="/public" element={<Public></Public>} />
         <Route path="/PasoTwo" element={<PasoTwo></PasoTwo>} />
         <Route path="/register" element={<Register></Register>} />
+        <Route path="/registerAlqui" element={<FormAlqui></FormAlqui>} />
         <Route path="/PasoTres" element={<PasoTres></PasoTres>} />
       </Routes>
     </div>

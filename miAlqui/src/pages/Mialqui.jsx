@@ -115,7 +115,7 @@ export const Main = () => {
           {/* filtros */}
           <div className="title">
             <h1>
-              mi<span>Alqui</span>
+              Popu<span>lares</span>
             </h1>
             {/* Insertar logo */}
             {/* <img src='src/img/hogar.png'/> */}
