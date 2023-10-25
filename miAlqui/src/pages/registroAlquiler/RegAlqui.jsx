@@ -1,9 +1,44 @@
-import React ,{useState} from "react";
-import LocationCont from './location/location.component'
+import React, { useState } from "react";
+import LocationCont from "./location/location.component";
 import "./form.css";
 
-export const FormAlqui = ()=> {
+export const FormAlqui = () => {
   const [step, setStep] = useState(1);
+  const [link, setLink] = useState(""); // Estado para almacenar el enlace
+
+  const handleLinkChange = (e) => {
+    setLink(e.target.value); // Actualiza el estado del enlace cuando cambia el input
+  };
+
+  const [noImage, setNoImage] = useState(
+    "https://www.freeiconspng.com/uploads/no-image-icon-6.png"
+  );
+  const [files, setFiles] = useState([]);
+  const [imageInput, setImageInput] = useState(null);
+
+  const uploadItem = (e) => {
+    e.preventDefault();
+    const newFiles = Array.from(e.target.files);
+
+    for (const file of newFiles) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFiles((prevFiles) => [
+          ...prevFiles,
+          {
+            id: file.size,
+            file: file,
+            imagePreviewUrl: reader.result,
+          },
+        ]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const removeItem = (id) => {
+    setFiles((prevFiles) => prevFiles.filter((obj) => obj.id !== id));
+    imageInput.value = ""; // Clear the file input
+  };
 
   const nextStep = () => {
     setStep(step + 1);
@@ -70,7 +105,6 @@ export const FormAlqui = ()=> {
     }
 
     return (
-    
       <div className="stepscontainer">
         <div className="stepsmobiletittlecontainer">
           <h3 className={styletitlemobile1.join("")}>Main Information</h3>
@@ -88,9 +122,7 @@ export const FormAlqui = ()=> {
           </div>
           <div className="step">
             <span className={stylenumber2.join(" ")}>2</span>
-            <h3 className={styletitle2.join(" ")}>
-              Mapa y Ubicaciòn
-            </h3>
+            <h3 className={styletitle2.join(" ")}>Mapa y Ubicaciòn</h3>
           </div>
           <div className="step">
             <span className={stylenumber3.join(" ")}>3</span>
@@ -98,7 +130,7 @@ export const FormAlqui = ()=> {
           </div>
           <div className="step">
             <span className={stylenumber4.join(" ")}>4</span>
-            <h3 className={styletitle4.join(" ")}>Terminos-Condiciones y Politica de Privacidad</h3>
+            <h3 className={styletitle4.join(" ")}>Terminos y Condiciones</h3>
           </div>
           <div className="step">
             <span className={stylenumber5.join(" ")}>5</span>
@@ -106,7 +138,6 @@ export const FormAlqui = ()=> {
           </div>
         </div>
       </div>
-      
     );
   };
 
@@ -123,17 +154,14 @@ export const FormAlqui = ()=> {
     case 1:
       return (
         <>
-         
-           
-            
           <div className="applicationFormContainer applicationForm">
-          <h1>¡Hola! es hora de cargar tu alojamiento</h1>
-          {stepsCounter()}
-            <h3 className="applicationFormContainer-tittle">
-              Datos Generales
-            </h3>
+            <h1>¡Hola! es hora de cargar tu alojamiento</h1>
+            {stepsCounter()}
+            <h3 className="applicationFormContainer-tittle">Datos Generales</h3>
             <form action="" id="form" className="form">
-                <label className="Personal"><h5>Datos Personales</h5></label>
+              <label className="Personal">
+                <h5>Datos Personales</h5>
+              </label>
               <input
                 type="text"
                 id=""
@@ -169,9 +197,10 @@ export const FormAlqui = ()=> {
                 placeholder="telefono"
                 required
               />
-              <label className="alojamiento"><h5>Datos del Alojamiento</h5></label>
-              
-            
+              <label className="alojamiento">
+                <h5>Datos del Alojamiento</h5>
+              </label>
+
               <select
                 id=""
                 className="mediowidth-left campo"
@@ -215,8 +244,7 @@ export const FormAlqui = ()=> {
                 <option value="11">10 Persona</option>
               </select>
 
-              
-            <select
+              <select
                 id=""
                 className="mediowidth-left campo"
                 placeholder="cantidad dormitorios"
@@ -258,26 +286,28 @@ export const FormAlqui = ()=> {
                 <option value="11">10 Baños</option>
               </select>
               <br />
-              <label  className="alojamiento"><h5>Equipamiento</h5>
-              <input
-                type="text"
-                id=""
-                className="mediowidth-left campo"
-                placeholder="ej: cocina, heladera, calefaciòn"
-                required
-              />
+              <label className="alojamiento">
+                <h5>Equipamiento</h5>
+                <input
+                  type="text"
+                  id=""
+                  className="mediowidth-left campo"
+                  placeholder="ej: cocina, heladera, calefaciòn"
+                  required
+                />
               </label>
-              
-              <label  className="alojamiento"><h5>Servicios</h5>
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="ej: internet, luz, agua"
-                required
-              />
+
+              <label className="alojamiento">
+                <h5>Servicios</h5>
+                <input
+                  type="text"
+                  id=""
+                  className="mediowidth-right campo"
+                  placeholder="ej: internet, luz, agua"
+                  required
+                />
               </label>
-              
+
               <input
                 onClick={nextStep}
                 type="submit"
@@ -287,25 +317,18 @@ export const FormAlqui = ()=> {
                 value="Save and continue"
                 required
               />
-              
             </form>
           </div>
-          
         </>
       );
     case 2:
       return (
         <>
-          
-
           <div className="form-mapa">
-          {stepsCounter()}
-            
-            <form action="" id="form" className=" form-mapa">
-             
-             <LocationCont />
+            {stepsCounter()}
 
-              
+            <form action="" id="form" className=" form-mapa">
+              <LocationCont />
 
               <input
                 onClick={nextStep}
@@ -326,54 +349,40 @@ export const FormAlqui = ()=> {
           {stepsCounter()}
 
           <div className="applicationFormContainer">
-            <h3 className="applicationFormContainer-tittle">
-              Employ Information
-            </h3>
+            <h3 className="applicationFormContainer-tittle">Imagen y Videos</h3>
+
             <form action="" id="form" className="form">
-              <select
-                id=""
-                className="fullwidth campo"
-                placeholder="Employ Type"
-                required
-              >
-                <option value disabled selected>
-                  Employ Type
-                </option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
-              </select>
+              <input
+                className="imput-img"
+                type="file"
+                onChange={uploadItem}
+                ref={(input) => setImageInput(input)}
+                multiple
+              />
+              <div className="imgContainer">
+                {!files.length ? (
+                  <img src={noImage} alt="No Image" />
+                ) : (
+                  files.map((obj, index) => (
+                    <div className="imgWrapper" key={obj.id}>
+                      <img src={obj.imagePreviewUrl} alt={obj.id} />
+                      <button type="button" onClick={() => removeItem(obj.id)}>
+                        &times;
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+              <hr />
+              <hr />
+              <h5>¡Agrega un Video si gustas!</h5>
               <input
                 type="text"
-                id=""
-                className="fullwidth campo"
-                placeholder="Current Employer"
-                required
+                placeholder="Introduce un enlace"
+                value={link}
+                onChange={handleLinkChange}
               />
-
-              <input
-                type="text"
-                id=""
-                className="fullwidth campo"
-                placeholder="Current Employer Phone"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-left campo"
-                placeholder="Employment Month"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Employment Year"
-                required
-              />
-
+              <p></p>
               <input
                 onClick={nextStep}
                 type="submit"
@@ -394,54 +403,149 @@ export const FormAlqui = ()=> {
 
           <div className="applicationFormContainer">
             <h3 className="applicationFormContainer-tittle">
-              Employ Information
+              Terminos y Condiciones
             </h3>
-            <form action="" id="form" className="form">
-              <input
-                type="text"
-                id=""
-                className="fullwidth campo"
-                placeholder="Occupation"
-                required
-              />
+            <hr />
+            <p>
+              Especificá tus condiciones para el alquiler, recordá que mientras
+              más flexible seas más oportunidades tendrás
+            </p>
+            <hr />
+            <form action="" id="form" className="form-condiciones">
+              <h4>Normas del alojamiento</h4>
+              <br />
 
-              <input
-                type="text"
-                id=""
-                className="fullwidth campo"
-                placeholder="Gross Monthly Income"
-                required
-              />
+              <div>
+                <p className="css-cp8r97">¿Se acepta familiares?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="Se aceptan Familias"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿Se acepta Mascotas?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="Se aceptan mascotas"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿Se acepta Pareja?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="Se acept pareja"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿Se acepta grupo de jóvene?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="Se aceptan jovenes"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿Es apto para niños?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="apto para niños"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">
+                  ¿Es apto para personas con discapacidad?
+                </p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="es apto para personas con discapacidad"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿se permite fumar en el interior?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="se permite fumar en el interior"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
+              <div>
+                <p className="css-cp8r97">¿Se permite hacer fiestas?</p>
+                <select
+                  id=""
+                  className="fullwidth campo"
+                  placeholder="se permite hacer fiestasr"
+                  required
+                >
+                  <option value disabled selected>
+                    ¡si!
+                  </option>
+                  <option value="2">¡No!</option>
+                </select>
+              </div>
 
-              <input
-                type="text"
-                id=""
-                className="mediowidth-left campo"
-                placeholder="Residence Type"
-                required
-              />
+              <div>
+                <hr />
+                <h6 className="h6-edit">
+                  Detallá lo más que puedas tu alojamiento, esto posicionará
+                  mejor tu anuncio.
+                </h6>
 
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Residence Monthly Payment"
-                required
-              />
-
-              <select
-                id=""
-                className="fullwidth campo"
-                placeholder="Social Security Number"
-                required
-              >
-                <option value disabled selected>
-                  Social Security Number
-                </option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
-              </select>
-
+                <textarea
+                  aria-invalid="false"
+                  aria-describedby="descripcion_ubicacion-helper-text"
+                  id="descripcion_ubicacion"
+                  className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline css-10oer18"
+                  style={{ height: 23, overflow: "hidden" }}
+                  defaultValue={""}
+                />
+              </div>
               <input
                 onClick={nextStep}
                 type="submit"
@@ -466,21 +570,21 @@ export const FormAlqui = ()=> {
               <select
                 id=""
                 className="mediowidth-left campo campo-raro"
-                placeholder="Credit Type"
+                placeholder="CUIL/CUIT"
                 required
               >
                 <option value disabled selected>
-                  Credit Type
+                  CUIL/CUIT
                 </option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
+                <option value="2">CUIL</option>
+                <option value="3">CUIT</option>
               </select>
 
               <input
-                type="text"
+                type="number"
                 id=""
                 className="mediowidth-right campo"
-                placeholder="Payment Factor"
+                placeholder="número"
                 required
               />
 
@@ -568,10 +672,7 @@ export const FormAlqui = ()=> {
               />
             </form>
           </div>
-          
         </>
       );
   }
-}
-
-
+};

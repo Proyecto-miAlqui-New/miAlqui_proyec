@@ -1,229 +1,259 @@
 .applicationFormContainer {
-    background-color: white;
-    max-width: 500px;
-    margin: 10px;
-    border-radius: 8px;
-    max-width: 500px !important;
-  }
-  
-  /*titulo h3*/
-  .applicationFormContainer-tittle {
-    padding: 20px 0px 0px 20px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 27px;
-    color: #000000;
-  }
-  
-  /*Form mobile*/
-  .form {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 8px;
-    justify-items: center;
-    padding: 20px 28px 20px 20px;
-  }
-  
+  background-color: white;
+  max-width: 500px;
+  margin: 10px;
+  border-radius: 8px;
+  max-width: 500px !important;
+}
+
+/*titulo h3*/
+.applicationFormContainer-tittle {
+  padding: 20px 0px 0px 20px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+
+/*Form mobile*/
+.form {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 8px;
+  justify-items: center;
+  padding: 20px 28px 20px 20px;
+}
+
+.campo {
+  margin-bottom: 8px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  font-size: 16px !important;
+  box-sizing: border-box;
+  padding-left: 16px;
+  border-radius: 5px;
+  background: white;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 25px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.campo:focus {
+  outline: none;
+  border: 1px solid rgb(252, 4, 68);
+}
+
+.submit {
+  background-color: rgb(252, 4, 68);
+  color: white;
+}
+
+.fullwidth {
+  grid-column: 1 / 3;
+}
+
+.mediowidth-left {
+  grid-column: 1/2;
+}
+
+.mediowidth-right {
+  grid-column: 2/3;
+}
+
+.submit {
+  padding: 0;
+  width: 100%;
+}
+
+/*Form desktop*/
+@media (min-width: 600px) {
   .campo {
-    margin-bottom: 8px;
-    height: 40px;
-    width: 100%;
-    border: 1px solid #e5e5e5;
-    font-size: 16px !important;
-    box-sizing: border-box;
-    padding-left: 16px;
-    border-radius: 5px;
-    background: white;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 25px;
-    color: rgba(0, 0, 0, 0.6);
-  }
-  
-  .campo:focus {
-    outline: none;
-    border: 1px solid rgb(252, 4, 68);
-  }
-  
-  .submit {
-    background-color: rgb(252, 4, 68);
-    color: white;
-  }
-  
-  .fullwidth {
-    grid-column: 1 / 3;
-  }
-  
-  .mediowidth-left {
-    grid-column: 1/2;
-  }
-  
-  .mediowidth-right {
-    grid-column: 2/3;
-  }
-  
-  .submit {
-    padding: 0;
-    width: 100%;
-  }
-  
-  /*Form desktop*/
-  @media (min-width: 600px) {
-    .campo {
-      height: 45px;
-      font-size: 17px !important;
-    }
-  
-    .applicationFormContainer {
-      padding: 30px;
-    }
-  }
-  
-  .stepscontainer {
-    max-width: 850px;
-    background-color: white;
-    padding: 14px 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  
-  @media (max-width: 700px) {
-    .stepscontainer {
-      width: 100%;
-    }
-  }
-  
-  /*TITULOS PARA MOBILE*/
-  .stepsmobiletittlecontainer {
-    width: 100%;
-    display: flex;
-    box-sizing: border-box;
-  }
-  @media (min-width: 700px) {
-    .stepsmobiletittlecontainer {
-      display: none;
-    }
-  }
-  
-  .stepmobiletittle {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 30px;
-    color: #000000;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    display: none;
-  }
-  
-  .showstepmobiletittle {
-    display: block !important;
-  }
-  
-  /*NUMEROS Y TITULOS*/
-  
-  .stepsdesktopcontainer {
-    display: flex;
-  }
-  
-  @media (max-width: 700px) {
-    .steptittle {
-      display: none;
-    }
-  }
-  
-  .step {
-    display: flex;
-    margin: 0 5px;
-  }
-  
-  .stepnumber {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.6);
-    text-align: center;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-  
-  .stepnumberactive {
-    border: 1px solid rgb(252, 4, 68) !important;
-    color: rgb(252, 4, 68)!important;
-  }
-  
-  .stepnumbercomplete {
-    background-color: rgb(252, 4, 68) !important;
-    color: white !important;
-    border: 1px solid rgb(252, 4, 68) !important;
-  }
-  
-  .steptittle {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(0, 0, 0, 0.6);
-  }
-  
-  .steptittleactive {
-    color: rgb(252, 4, 68) !important;
-  }
-  
-  .App {
-    font-family: sans-serif;
-  }
-  
-  .applicationForm {
-    width: 100%;
-    height: 100vh;
-    margin-left: 65px;
-    display: flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    align-items: center;
-  }
-  
-  @media (max-width: 700px) {
-    .applicationForm {
-      margin: 0 0 30px 0;
-    }
+    height: 45px;
+    font-size: 17px !important;
   }
 
-.applicationFormContainer{
-    padding-left:  0;
-    padding-right: 0;
+  .applicationFormContainer {
+    padding: 30px;
+  }
+}
+
+.stepscontainer {
+  max-width: 850px;
+  background-color: white;
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .stepscontainer {
+    width: 100%;
+  }
+}
+
+/*TITULOS PARA MOBILE*/
+.stepsmobiletittlecontainer {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+@media (min-width: 700px) {
+  .stepsmobiletittlecontainer {
+    display: none;
+  }
+}
+
+.stepmobiletittle {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  display: none;
+}
+
+.showstepmobiletittle {
+  display: block !important;
+}
+
+/*NUMEROS Y TITULOS*/
+
+.stepsdesktopcontainer {
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .steptittle {
+    display: none;
+  }
+}
+
+.step {
+  display: flex;
+  margin: 0 5px;
+}
+
+.stepnumber {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.stepnumberactive {
+  border: 1px solid rgb(252, 4, 68) !important;
+  color: rgb(252, 4, 68) !important;
+}
+
+.stepnumbercomplete {
+  background-color: rgb(252, 4, 68) !important;
+  color: white !important;
+  border: 1px solid rgb(252, 4, 68) !important;
+}
+
+.steptittle {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.steptittleactive {
+  color: rgb(252, 4, 68) !important;
+}
+
+.App {
+  font-family: sans-serif;
+}
+
+.applicationForm {
+  width: 100%;
+  height: 100vh;
+  margin-left: 65px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .applicationForm {
+    margin: 0 0 30px 0;
+  }
+}
+
+.applicationFormContainer {
+  padding-left: 0;
+  padding-right: 0;
 }
 .applicationForm {
-    width: 100% !important;
-    height: 100vh !important;
-    margin-left: 65px !important;
-    display: flex;
-    flex-direction: column !important;
-    /* justify-content: center; */
-    align-items: center !important;
+  width: 100% !important;
+  height: 100vh !important;
+  margin-left: 65px !important;
+  display: flex;
+  flex-direction: column !important;
+  /* justify-content: center; */
+  align-items: center !important;
 }
-.Personal{
-    color: #000000;
-    
-    
+.Personal {
+  color: #000000;
 }
-.form-mapa{
+.form-mapa {
   padding: 0;
   margin: 0;
-  font-family:'Quicksand';
-  title{
-    font-family:'Dancing Script', 'Quicksand', sans-serif;
+  font-family: "Quicksand";
+  title {
+    font-family: "Dancing Script", "Quicksand", sans-serif;
   }
   text-align: center;
+}
+.applicationFormContainer-tittle {
+  text-align: center;
+}
+.imput-img {
+  display: inline-block !important;
+  padding-left: 50px;
+}
+.css-cp8r97 {
+  margin: 12px 0px 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.normas {
+  text-align: center;
+}
+.form-condiciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  grid-gap: 10px; /* Espacio entre las celdas */
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+.h6-edit {
+  position: relative;
+
+  color: #040404;
 }
