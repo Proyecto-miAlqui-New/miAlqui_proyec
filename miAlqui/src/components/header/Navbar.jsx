@@ -25,7 +25,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse">
           <ul class="navbar-nav tex-color enlace-nav">
             <li className="nav-item menu-nav">
-              <Link to="/home">
+              <Link to="/">
                 <a
                   className="nav-link fw-bold py-1 px-0 active"
                   aria-current="page"

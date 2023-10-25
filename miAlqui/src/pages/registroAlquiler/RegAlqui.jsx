@@ -335,7 +335,7 @@ export const FormAlqui = () => {
                 type="submit"
                 id="submit"
                 className="fullwidth submit campo"
-                placeholder="Save and continue"
+                placeholder="Formosa"
                 value="Save and continue"
                 required
               />
@@ -529,6 +529,26 @@ export const FormAlqui = () => {
                   <option value="2">¡No!</option>
                 </select>
               </div>
+              <select
+                id=""
+                className="mediowidth-left campo campo-raro"
+                placeholder="CUIL/CUIT"
+                required
+              >
+                <option value disabled selected>
+                  CUIL/CUIT
+                </option>
+                <option value="2">CUIL</option>
+                <option value="3">CUIT</option>
+              </select>
+
+              <input
+                type="number"
+                id=""
+                className="mediowidth-right campo"
+                placeholder="número"
+                required
+              />
 
               <div>
                 <hr />
@@ -565,103 +585,8 @@ export const FormAlqui = () => {
           {stepsCounter()}
 
           <div className="applicationFormContainer">
-            <h3 className="applicationFormContainer-tittle">Loan Parameters</h3>
+            <h3 className="applicationFormContainer-tittle">Datos Cargados</h3>
             <form action="" id="form" className="form">
-              <select
-                id=""
-                className="mediowidth-left campo campo-raro"
-                placeholder="CUIL/CUIT"
-                required
-              >
-                <option value disabled selected>
-                  CUIL/CUIT
-                </option>
-                <option value="2">CUIL</option>
-                <option value="3">CUIT</option>
-              </select>
-
-              <input
-                type="number"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="número"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-left campo"
-                placeholder="Selling Price"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Down Payment"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-left campo"
-                placeholder="Sales Tax Included"
-                required
-              />
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Sales Tax"
-                required
-              />
-
-              <select
-                id=""
-                className="mediowidth-left campo campo-raro"
-                placeholder="Amount Financed"
-                required
-              >
-                <option value disabled selected>
-                  Amount Financed
-                </option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
-              </select>
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Contract Language"
-                required
-              />
-
-              <select
-                id=""
-                className="mediowidth-left campo campo-raro"
-                placeholder="Contract State"
-                required
-              >
-                <option value disabled selected>
-                  Contract State
-                </option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
-              </select>
-
-              <input
-                type="text"
-                id=""
-                className="mediowidth-right campo"
-                placeholder="Product of Service"
-                required
-              />
-
               <input
                 type="submit"
                 id="submit"
