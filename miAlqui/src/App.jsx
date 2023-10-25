@@ -5,6 +5,7 @@ import { Main } from "./pages/Mialqui";
 import { PasoTwo } from "./pages/register/pasoTwo";
 import { PasoTres } from "./pages/register/pasoTres";
 import { FormAlqui } from "./pages/registroAlquiler/RegAlqui";
+import { Contact } from "./components/contact/contact"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register></Register>} />
         <Route path="/registerAlqui" element={<FormAlqui></FormAlqui>} />
         <Route path="/PasoTres" element={<PasoTres></PasoTres>} />
+        <Route path="/Contact" element={<Contact></Contact>} />
       </Routes>
     </div>
   );
