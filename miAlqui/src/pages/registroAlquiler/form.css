@@ -3,7 +3,7 @@
   max-width: 500px;
   margin: 10px;
   border-radius: 8px;
-  max-width: 500px !important;
+  max-width: 100% !important;
 }
 
 /*titulo h3*/
@@ -207,11 +207,10 @@
 .applicationForm {
   width: 100% !important;
   height: 100vh !important;
-  margin-left: 65px !important;
+  /* margin-left: 30% !important; */
   display: flex;
   flex-direction: column !important;
   /* justify-content: center; */
-  align-items: center !important;
 }
 .Personal {
   color: #000000;
@@ -241,6 +240,7 @@
   letter-spacing: 0.00938em;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: hsla(330, 63%, 64%, 0.17);
 }
 .normas {
   text-align: center;
@@ -249,11 +249,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
   grid-gap: 10px; /* Espacio entre las celdas */
-  max-width: 400px; /* Ancho máximo del formulario */
+  max-width: 800px; /* Ancho máximo del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
 }
 .h6-edit {
   position: relative;
 
   color: #040404;
+}
+p {
+  text-align: center;
 }

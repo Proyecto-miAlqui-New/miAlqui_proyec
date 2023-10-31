@@ -42,9 +42,11 @@ export const Navbar = () => {
                 </a>
               </Link>
             </li>
-            <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
-              Contact
-            </a>
+            <Link to="/Contact">
+              <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
+                Contact
+              </a>
+            </Link>
             <li className="nav-item menu-nav">
               <Link to="/">
                 <a

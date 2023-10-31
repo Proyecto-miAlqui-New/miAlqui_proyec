@@ -158,7 +158,11 @@ export const FormAlqui = () => {
             <h1>¡Hola! es hora de cargar tu alojamiento</h1>
             {stepsCounter()}
             <h3 className="applicationFormContainer-tittle">Datos Generales</h3>
-            <form action="" id="form" className="form">
+            <form
+              action=""
+              id="form"
+              className="form applicationFormContainer1"
+            >
               <label className="Personal">
                 <h5>Datos Personales</h5>
               </label>
@@ -336,7 +340,7 @@ export const FormAlqui = () => {
                 id="submit"
                 className="fullwidth submit campo"
                 placeholder="Formosa"
-                value="Save and continue"
+                value="Guardar y Continuar"
                 required
               />
             </form>
