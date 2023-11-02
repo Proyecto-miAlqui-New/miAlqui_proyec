@@ -125,6 +125,7 @@ export const Main = () => {
 
           <ArticleList articles={articles} />
         </div>
+       
       </main>
     </>
   );
