@@ -1,4 +1,5 @@
 export const ArticleList = ({ articles }) => {
+  
   return (
     <div className="article-list">
       {articles.map((article) => (

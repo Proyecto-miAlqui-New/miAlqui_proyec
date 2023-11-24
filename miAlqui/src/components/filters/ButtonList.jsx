@@ -1,4 +1,5 @@
 export const ButtonList = ({ categories, filterCategory }) => {
+  
   return (
     <div className="categories">
       {categories.map((category) => (
