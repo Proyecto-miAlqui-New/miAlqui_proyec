@@ -43,10 +43,17 @@ export const Navbar = () => {
               </Link>
             </li>
             <Link to="/Contact">
+<<<<<<< HEAD
               <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
                 Contact
               </a>
             </Link>
+=======
+            <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
+              Contact
+              </a>
+              </Link>
+>>>>>>> 9d00acdf86bf44ea008dcc1aa575e0392a3847d7
             <li className="nav-item menu-nav">
               <Link to="/">
                 <a
