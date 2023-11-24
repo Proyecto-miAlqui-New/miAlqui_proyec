@@ -3,6 +3,7 @@ import { Public } from "./pages/public";
 import { Main } from "./pages/Mialqui";
 import { FormAlqui } from "./pages/registroAlquiler/RegAlqui";
 import { Contact } from "./components/contact/contact";
+
 function App() {
   return (
     <div>
