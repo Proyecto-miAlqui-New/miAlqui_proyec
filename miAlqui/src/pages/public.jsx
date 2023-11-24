@@ -3,6 +3,7 @@ import React from "react";
 import { Header } from "../components/header/header";
 import { Link } from "react-router-dom";
 import "./public.css";
+import { Footer } from "../components/footer/Footer";
 
 export const Public = () => {
   return (
@@ -44,6 +45,7 @@ export const Public = () => {
           </div>
         </div>
       </main>
+      <Footer/>
     </>
   );
 };

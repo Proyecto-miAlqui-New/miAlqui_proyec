@@ -1,4 +1,10 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import "./footer.css";
 
 export const Footer = () => {
   return (
@@ -8,19 +14,19 @@ export const Footer = () => {
       </h6>
       <div className="redes">
         <a href="" className="link" style={{ color: "rgb(252, 4, 68)" }}>
-          <i className="link-icon fa fa-facebook" />
+          <FontAwesomeIcon icon={faFacebook} className="link-icon" />
           <span className="link-redes-title">Facebook</span>
         </a>
         <a href="" className="link" style={{ color: "rgb(252, 4, 68)" }}>
-          <i className="link-icon fa fa-twitter" />
+          <FontAwesomeIcon icon={faTwitter} className="link-icon" />
           <span className="link-redes-title">Twitter</span>
         </a>
         <a href="" className="link" style={{ color: "rgb(252, 4, 68)" }}>
-          <i className="link-icon fa fa-instagram" />
+          <FontAwesomeIcon icon={faInstagram} className="link-icon" />
           <span className="link-redes-title">Intagram</span>
         </a>
         <a href="" className="link" style={{ color: "rgb(252, 4, 68)" }}>
-          <i className="link-icon fa fa-google" />
+          <FontAwesomeIcon icon={faGoogle} className="link-icon" />
           <span className="link-redes-title">Google</span>
         </a>
       </div>

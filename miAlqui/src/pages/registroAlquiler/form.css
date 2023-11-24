@@ -21,7 +21,7 @@
 .form {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-column-gap: 8px;
+  grid-column-gap: 120px;
   justify-items: center;
   padding: 20px 28px 20px 20px;
 }
@@ -215,6 +215,7 @@
 .Personal {
   color: #000000;
 }
+
 .form-mapa {
   padding: 0;
   margin: 0;
@@ -263,3 +264,5 @@ p {
 .cover-button {
   background-color: aqua;
 }
+
+

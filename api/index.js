@@ -4,7 +4,6 @@ import cors from "cors";
 import path from "path";
 import fs from "fs";
 // import helmet from "helmet";
-
 import { Server as SocketServer } from "socket.io";
 import { createServer } from "http";
 
@@ -26,11 +25,10 @@ import { router } from "./routes/Alojamiento.routes.js";
 
 //importar configuracion de la bd
 import { sequelize } from "./conf/db.js";
-import { Socket } from "dgram";
-import data from "../miAlqui/src/data/data.js";
 
 //middleware
 app.use(cors());
+app.use(express.json());
 
 //codigo para carpeta log para el registro de errores
 // Utiliza 'fileURLToPath' para obtener la ruta del archivo actual (__filename)
@@ -63,23 +61,8 @@ sequelize
   .then(() => console.log("Conexión a base de datos exitosa"))
   .catch((error) => console.log("Error al conectar a base de datos", error));
 
-//webSockent eventsa
-// io.on("connection", (Socket) => {
-//   console.log("cliente conectado", Socket.id);
-//   Socket.emit("message", "Bienvenido al chat");
-
-//   Socket.on("new-message", (data) => {
-//     console.log(data);
-//     io.emit("new-message", data);
-//   });
-// });
-// Socket.io("disconnect", () => {
-//   console.log("cliente desaconectado ", Socket.id);
-// });
-
 //rutas
 app.use("/api/Alojamiento", router);
-
 
 // Servidor en escucha de peticiones
 httpServer.listen(environments.PORT, async () => {

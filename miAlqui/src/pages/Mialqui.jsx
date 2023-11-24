@@ -4,6 +4,7 @@ import { Header } from "../components/header/header";
 import "./mialqui.css";
 import { ArticleList, ButtonList } from "../components";
 import data from "../data/data";
+import { Footer } from "../components/footer/Footer";
 
 export const Main = () => {
   const allCategories = [
@@ -125,8 +126,10 @@ export const Main = () => {
 
           <ArticleList articles={articles} />
         </div>
+
        
       </main>
+      <Footer/>
     </>
   );
 };

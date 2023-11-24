@@ -12,8 +12,9 @@ export const UserLocadorModel = sequelize.define(
     },
     nombre: DataTypes.STRING,
     apellido: DataTypes.STRING,
-    dniCuitCuil: DataTypes.INTEGER,
+    dni: DataTypes.INTEGER,
     email: DataTypes.STRING,
+    cuitcuil: DataTypes.INTEGER,
     telefono: DataTypes.INTEGER,
   },
   {
