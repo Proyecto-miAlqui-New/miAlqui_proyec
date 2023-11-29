@@ -6,11 +6,11 @@ export const Navbar = () => {
   return (
     <nav className="nav nav-masthead justify-content-center float-md-end navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a href="Mialqui.jsx" class="navbar-brand logo tex-color enlace-nav">
+        <Link to="/" class="navbar-brand logo tex-color enlace-nav">
           <h1>
             mi<span>Alqui</span>
           </h1>
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -25,39 +25,42 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse">
           <ul class="navbar-nav tex-color enlace-nav">
             <li className="nav-item menu-nav">
-              <Link to="/">
-                <a
-                  className="nav-link fw-bold py-1 px-0 active"
-                  aria-current="page"
-                  href=""
-                >
+              <Link to="/" className="nav-link fw-bold py-1 px-0 active"
+                  aria-current="page">
+              
                   Inicio
-                </a>
+               
               </Link>
             </li>
             <li className="nav-item menu-nav">
-              <Link to="/public">
-                <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
+              <Link to="/public" className="nav-link fw-bold py-1 px-0 enlace-nav" >
+                
                   Publica
-                </a>
+                
               </Link>
             </li>
-            <Link to="/Contact">
-              <a className="nav-link fw-bold py-1 px-0 enlace-nav" href="#">
+            <Link to="/Contact" className="nav-link fw-bold py-1 px-0 enlace-nav">
+            
                 Contact
-              </a>
+             
             </Link>
             <li className="nav-item menu-nav">
-              <Link to="/">
-                <a
-                  className="nav-link fw-bold py-1 px-0 active enlace-nav"
-                  aria-current="page"
-                  href=""
-                >
+              <Link to="/auth/register" className="nav-link fw-bold py-1 px-0 active enlace-nav"
+                  aria-current="page">
+                
                   Registrate
-                </a>
+               
               </Link>
             </li>
+
+            {/* <li className="nav-item menu-nav">
+              <Link to="/auth/login" className="nav-link fw-bold py-1 px-0 active enlace-nav"
+                  aria-current="page">
+                
+                  InicioSecciòn
+               
+              </Link>
+            </li> */}
           </ul>
         </div>
         {/* <Link to="/">

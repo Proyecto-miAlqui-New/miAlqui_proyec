@@ -1,7 +1,7 @@
 import { AlojamientoModel } from "../models/AlojamientoModel.js";
 import { ImagenModel } from "../models/ConverImage.Model.js";
 import { TipoAlojamientoModel } from "../models/TipoAlojamientoModel.js";
-import { UserLocadorModel } from "../models/UserLocadorModel.js";
+
 
 //COntrol para cargar un nuevo alojamiento
 
@@ -28,21 +28,19 @@ export const CtrlCreateAlojamiento = async (req, res) => {
     img,
   } = req.body;
 
-  const newUserLocador = await UserModel.create({
-    name: name,
-    lastName: lastName,
-    dni: dni,
-    email: email,
-    cuilt: cuilt,
-    telefono: telefono,
-  });
+  
   try {
     //se crea una nueva publicacion del alojamiento
     const NewpublicacionAlojamiento = await AlojamientoModel.create({
       //asignar las llaves foraneas
       id_tipo_alojamiento: tipoAlojamiento,
-      id_UserLocador: newUserLocador._id,
       id_img: img,
+      nombre: name,
+      apellido: lastName,
+      dni: dni,
+      email:email ,
+      cuitcuil: cuilt,
+      telefono: telefono,
       cantHabitacion: cantDormitorios,
       cantBaños: cantBaños,
       precio: precio,
@@ -71,9 +69,15 @@ export const CtrlCreateAlojamiento = async (req, res) => {
 
 export const CtrlGetAllAlojamiento = async (req, res) => {
   const tipoAloj = await TipoAlojamientoModel.findAll();
-  const dataLocador = await UserLocadorModel.findAll();
+  
   const imgUrl = await ImagenModel.findAll();
   const {
+    nombre,
+    apellido,
+    dni,
+    email,
+    cuitcuil,
+    telefono,
     cantHabitacion,
     cantBaños,
     precio,
@@ -89,8 +93,13 @@ export const CtrlGetAllAlojamiento = async (req, res) => {
   try {
     return res.json(
       tipoAloj,
-      dataLocador,
       imgUrl,
+      nombre,
+      apellido,
+      dni,
+      email,
+      cuitcuil,
+      telefono,
       cantHabitacion,
       cantBaños,
       precio,

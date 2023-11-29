@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Header } from "../components/header/header";
+import { Header } from "../../components/header/header";
 import { Link } from "react-router-dom";
 import "./public.css";
-import { Footer } from "../components/footer/Footer";
+import { Footer } from "../../components/footer/Footer";
 
 export const Public = () => {
   return (
@@ -35,12 +35,14 @@ export const Public = () => {
                   Cargar Alojamiento
                 </button>
               </Link>
+              <Link to="/">
               <button
                 type="button"
                 className="btn btn-outline-secondary btn-lg px-4"
               >
                 Más Tarde
               </button>
+              </Link>
             </div>
           </div>
         </div>

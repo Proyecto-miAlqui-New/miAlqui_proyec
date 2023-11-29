@@ -11,7 +11,7 @@ export const Step1 = () => {
         {stepsCounter()}
         {/*indicando en qué paso del proceso se encuentra el usuario */}
         <h3 className="applicationFormContainer-tittle">Datos Generales</h3>
-        <form action="" id="form" className="form applicationFormContainer1">
+        <form action="" id="form" className="form applicationFormContainer">
           <label className="Personal">
             <h5>Datos Personales</h5>
           </label>
@@ -106,7 +106,7 @@ export const Step1 = () => {
               })
             }
           >
-            <option value disabled selected>
+            <option value="" disabled>
               {/*opcion por defecto */}
               Tipo de Alojamiento
             </option>

@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Header } from "../components/header/header";
+import { Header } from "../../components/header/header";
 import "./mialqui.css";
-import { ArticleList, ButtonList } from "../components";
-import data from "../data/data";
-import { Footer } from "../components/footer/Footer";
+import { ArticleList, ButtonList } from "../../components/filters";
+import data from "../../data/data";
+import { Footer } from "../../components/footer/Footer";
+import { Link } from "react-router-dom";
 
 export const Main = () => {
   const allCategories = [
@@ -46,7 +47,7 @@ export const Main = () => {
           </span>
         </div>
         <div className="botones-alineacion">
-          <a className="link-buton" href="/Public/Alquileres/alquilar.html">
+          <Link to="/" className="link-buton" href="/Public/Alquileres/alquilar.html">
             <button
               type="button"
               className="btn boton-color  iRCgEU"
@@ -56,8 +57,8 @@ export const Main = () => {
             >
               Alquilar
             </button>
-          </a>
-          <a className="link-buton" href="/Public/publicar/publicar.html">
+          </Link>
+          <Link to="/public" className="link-buton" href="/Public/publicar/publicar.html">
             <button
               type="button"
               className="btn boton-color-2  iRCgEU-2"
@@ -68,7 +69,7 @@ export const Main = () => {
             >
               Publicar
             </button>
-          </a>
+          </Link>
           <a href="#abajo">
             <button
               type="button"

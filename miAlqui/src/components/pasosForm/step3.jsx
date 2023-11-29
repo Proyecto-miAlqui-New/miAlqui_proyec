@@ -11,12 +11,63 @@ export const Step3 = () => {
   console.log(step1Data);
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
+  // const { stepForm, handleInputChange} = useForm({
+  //       name: "",
+  //       lastName:"",
+  //       dni: "",
+  //       email:"",
+  //       cuilt: "",
+  //       telefono: "",
+  //       tipoAlojamiento: "",
+  //       cantDormitorios: "",
+  //       cantBaños: "",
+  //       precio: "",
+  //       barrio: "",
+  //       calle: "",
+  //       equipamiento:"",
+  //       servicios: "",
+  //       proteccion: "",
+  //       lugaresCerca: "",
+  //       title: "",
+  //       descripcionTotal: "",
+  //       img: "",
+  // })
+
+  const handleButtonClick = async(e) => {
+    e.preventDefault();
     // aca deveria enviar los datos a la db pero no andaaaahhhh
-    const options = {
-      method: "POST",
+    // const options = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     name: step1Data.name,
+    //     lastName: step1Data.lastName,
+    //     dni: step1Data.dni,
+    //     email: step1Data.email,
+    //     cuilt: step1Data.cuilt,
+    //     telefono: step1Data.telefono,
+    //     tipoAlojamiento: step1Data.tipoAlojamiento,
+    //     cantDormitorios: step1Data.cantDormitorios,
+    //     cantBaños: step1Data.cantBaños,
+    //     precio: step1Data.precio,
+    //     barrio: step1Data.barrio,
+    //     calle: step1Data.calle,
+    //     equipamiento: step2Data.equipamiento,
+    //     servicios: step2Data.servicios,
+    //     proteccion: step2Data.proteccion,
+    //     lugaresCerca: step2Data.lugaresCerca,
+    //     title: step2Data.title,
+    //     descripcionTotal: step2Data.descripcionTotal,
+    //     img: step3Data.img,
+    //   }),
+    // };
+    try {
+      const respAloj = await fetch("http://localhost:5500/api", {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: step1Data.name,
@@ -39,11 +90,22 @@ export const Step3 = () => {
         descripcionTotal: step2Data.descripcionTotal,
         img: step3Data.img,
       }),
-    };
-    const alojamiento = fetch("http:5500/api/Alojamiento", options);
+    });
+    console.log('Respuesta del servidor',respAloj);
+    
+    const responseAloj = await respAloj.json();
+    console.log(responseAloj)
     // para que navegue a la pagina de admin despues que registre los datos
-    console.log(alojamiento);
     navigate("/adminAloj");
+    } catch (error) {
+      alert('No se pudo crear el Alojamiento');
+      console.error(error);
+    }
+    
+    // const alojamiento = fetch("http:5500/api/Alojamiento", options);
+    // para que navegue a la pagina de admin despues que registre los datos
+    // console.log(alojamiento);
+    // navigate("/adminAloj");
   };
 
   //almacena una url de imagen predeterminada (es la quetiene la camarita)
