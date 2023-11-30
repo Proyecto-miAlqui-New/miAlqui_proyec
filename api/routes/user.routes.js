@@ -6,12 +6,12 @@ import {
     getUsers,
     updateUser
 } from "../controllers/user.controllers.js";
-const router = Router();
+const userRouter = Router();
 
-router.get('/', getUsers);
-router.post('/', createUser);
-router.get('/:id', getUserById);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+userRouter.get('/', getUsers);
+userRouter.post('/', createUser);
+userRouter.get('/:id', getUserById);
+userRouter.put('/:id', updateUser);
+userRouter.delete('/:id', deleteUser);
 
-export default router;
+export {userRouter};

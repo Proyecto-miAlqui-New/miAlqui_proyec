@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { obtenerMensajes } from "../controllers/message.controller.js";
 
-const router = Router();
+const messageRouter = Router();
 
-router.get('/', obtenerMensajes)
+messageRouter.get('/api/messages', obtenerMensajes)
 
 
-export default router;
+export {messageRouter};

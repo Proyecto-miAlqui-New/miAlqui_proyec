@@ -3,7 +3,7 @@ import { useFormContext } from "../../context/FormContext";
 import { Step1 } from "../../components/pasosForm/step1";
 import { Step2 } from "../../components/pasosForm/step2";
 import { Step3 } from "../../components/pasosForm/step3";
-
+import { Step4 } from "./step4Fin";
 export const MultipleStep = () => {
   const { step } = useFormContext();
 
@@ -16,5 +16,9 @@ export const MultipleStep = () => {
       return <Step2 />;
     case 3:
       return <Step3 />;
+    case 4:
+      return <Step4/>;
+    default:
+      return null;
   }
 };

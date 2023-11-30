@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useFormContext } from "../../context/FormContext";
 
-export const Step2 = () => {
-  const { step2Data, setStep2Data, nextStep, prevStep, stepsCounter } =
-    useFormContext();
 
+export const Step2 = () => {
+  const {  step2Data,setStep2Data, nextStep, prevStep, stepsCounter } =
+    useFormContext();
+   
   return (
     <>
       <div className="applicationFormContainer applicationForm">
@@ -84,6 +85,10 @@ export const Step2 = () => {
             className="fullwidth campo"
             rows="4"
             placeholder="Describe los lugares cercanos a tu alojamiento para atraer a las personas."
+            value={step2Data.lugaresCerca}
+              onChange={(e) =>
+                setStep2Data({ ...step2Data, lugaresCerca: e.target.value })
+              }
           ></textarea>
 
           {/*input para titulo del alojamiento */}
@@ -98,6 +103,10 @@ export const Step2 = () => {
             className="fullwidth campo"
             placeholder=" Puede incluir el tipo de propiedad y la ubicación aproximada."
             required
+            value={step2Data.title}
+              onChange={(e) =>
+                setStep2Data({ ...step2Data, title: e.target.value })
+              }
             //para que se valla guardando en el estado setStep1data
           />
 
@@ -114,6 +123,10 @@ export const Step2 = () => {
             className="fullwidth campo"
             rows="4"
             placeholder="Describa todo lo que considere necesario para que las personas se interesen en su alojamiento"
+            value={step2Data.descripcionTotal}
+              onChange={(e) =>
+                setStep2Data({ ...step2Data, descripcionTotal: e.target.value })
+              }
           ></textarea>
 
           <input

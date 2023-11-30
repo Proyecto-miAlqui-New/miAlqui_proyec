@@ -3,6 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import { fetchWithOutAuth } from "../../api/authApi";
 import { useFormLogin } from "../../hook/useFormLogin";
+ //css
+ import '../registerUser/registerUser.css'
+
+ //import de img/video
+import video  from '../registerUser/LoginImg/4140f6fa067e46f738a3d402b8dbd6de.mp4'
+import logo from '../registerUser/LoginImg/teletrabajo.png'
+//import icons
+import { FaUserShield } from 'react-icons/fa'
+import {BsFillShieldLockFill} from 'react-icons/bs'
+import {AiOutlineSwapRight} from 'react-icons/ai'
 
 const LoginPage = () => {
   const navigate = useNavigate();

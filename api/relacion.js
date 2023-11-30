@@ -1,8 +1,6 @@
 import { sequelize } from "./conf/db.js";
 import { AlojamientoModel } from "./models/AlojamientoModel.js";
 import { TipoAlojamientoModel } from "./models/TipoAlojamientoModel.js";
-
-import { ImagenModel } from "./models/ConverImage.Model.js";
 import "dotenv/config";
 import { app } from "./index.js";
 
@@ -17,17 +15,10 @@ TipoAlojamientoModel.hasMany(AlojamientoModel, {
 
 
 
-AlojamientoModel.belongsTo(ImagenModel, {
-  foreignKey: "id_img",
-});
-ImagenModel.hasMany(AlojamientoModel, {
-  foreignKey: "id_img",
-});
-
 sequelize.models = {
   AlojamientoModel,
   TipoAlojamientoModel,
-  ImagenModel,
+ 
 };
 // const genero= [
 //   { edad: "Menor de 15 años" },
@@ -45,5 +36,5 @@ sequelize.sync({ force: false }).then(() => {
 export default {
   AlojamientoModel,
   TipoAlojamientoModel,
-  ImagenModel,
+ 
 };

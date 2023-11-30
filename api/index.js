@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import fileUpload from "express-fileupload";
 import path from "path";
 import fs from "fs";
 // import helmet from "helmet";
@@ -21,13 +22,10 @@ const io = new SocketServer(httpServer);
 import { environments } from "./conf/environments.js";
 
 //rutas
-import { router } from "./routes/Alojamiento.routes.js";
 
 //importar configuracion de la bd
 import { sequelize } from "./conf/db.js";
-import userRoutes from "./routes/user.routes.js"
-import authRoutes from "./routes/auth.routes.js"
-import messageRoutes from "./routes/message.routes.js"
+import { router } from "./routes/routes.js";
 import { validarJWTWebsocket } from "./middlewares/validar-jwt.js"
 import { listarUsuarios, mensajePersonal, usuarioConectado, usuarioDesconectado } from './controllers/sockets.controller.js';
 
@@ -40,6 +38,14 @@ EventEmitter.defaultMaxListeners = 15;
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(
+  fileUpload({
+    createParentPath: true,
+    limits: { fieldSize: 20 * 1024 * 1024 },
+    abortOnLimit: true,
+    responseOnLimit: "el Archivo es muy grande",
+  })
+);
 
 
 //codigo para carpeta log para el registro de errores
@@ -74,11 +80,7 @@ sequelize
   .catch((error) => console.log("Error al conectar a base de datos", error));
 
 //rutas
-app.use("/api", router);
-app.use("/user", userRoutes);
-app.use("/auth", authRoutes);
-app.use("/mensaje", messageRoutes);
-
+app.use(router);
 
 // Middleware para validar JWT en conexiones WebSocket
 io.use((socket, next) => {

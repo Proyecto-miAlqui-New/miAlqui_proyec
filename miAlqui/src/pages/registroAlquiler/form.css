@@ -266,3 +266,24 @@ p {
 }
 
 
+.datosCargados {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los contenedores de los pasos */
+}
+
+.pasoContainer {
+  width: 30%; /* Ancho de cada contenedor de paso */
+  margin-right: 10px; /* Espacio entre los contenedores de pasos */
+  border: 1px solid #ccc; /* Añade un borde gris alrededor de cada contenedor */
+  padding: 10px; /* Añade espacio interno para que el contenido no esté pegado al borde */
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total del contenedor */
+}
+
+ul.uldatosCargados{
+  list-style-type: none; /* Quita los puntos de la lista */
+  padding: 0;
+}
+h4.h4DatosCargado{
+  margin-top: 0;
+ color: rgb(252, 4, 68);
+}

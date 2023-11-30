@@ -9,7 +9,7 @@ export const useForm = (initialState) => {
 
   const handleInputChange = ({ target }) => {
     setStepForm({
-      ...values,
+      ...stepForm,
       [target.name]: target.value,
     });
   };

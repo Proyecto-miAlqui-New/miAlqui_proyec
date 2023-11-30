@@ -1,112 +1,20 @@
 import React, { useState } from "react";
 import { useFormContext } from "../../context/FormContext";
-import { useNavigate } from "react-router-dom";
+
 import { useForm } from "../../hook/useForm";
 
-// import { useFormSubmit } from "../../hook/useFormSubmit";
+
 
 export const Step3 = () => {
-  const { step1Data, step2Data, step3Data, nextStep, prevStep, stepsCounter } =
+  const {stepForm: step3Data, handleInputChange} = useForm({
+     files:[],
+  }) 
+  const { step1Data, step2Data, nextStep, prevStep, stepsCounter } =
     useFormContext();
-  console.log(step1Data);
-  const navigate = useNavigate();
-
-  // const { stepForm, handleInputChange} = useForm({
-  //       name: "",
-  //       lastName:"",
-  //       dni: "",
-  //       email:"",
-  //       cuilt: "",
-  //       telefono: "",
-  //       tipoAlojamiento: "",
-  //       cantDormitorios: "",
-  //       cantBaños: "",
-  //       precio: "",
-  //       barrio: "",
-  //       calle: "",
-  //       equipamiento:"",
-  //       servicios: "",
-  //       proteccion: "",
-  //       lugaresCerca: "",
-  //       title: "",
-  //       descripcionTotal: "",
-  //       img: "",
-  // })
-
-  const handleButtonClick = async(e) => {
-    e.preventDefault();
-    // aca deveria enviar los datos a la db pero no andaaaahhhh
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name: step1Data.name,
-    //     lastName: step1Data.lastName,
-    //     dni: step1Data.dni,
-    //     email: step1Data.email,
-    //     cuilt: step1Data.cuilt,
-    //     telefono: step1Data.telefono,
-    //     tipoAlojamiento: step1Data.tipoAlojamiento,
-    //     cantDormitorios: step1Data.cantDormitorios,
-    //     cantBaños: step1Data.cantBaños,
-    //     precio: step1Data.precio,
-    //     barrio: step1Data.barrio,
-    //     calle: step1Data.calle,
-    //     equipamiento: step2Data.equipamiento,
-    //     servicios: step2Data.servicios,
-    //     proteccion: step2Data.proteccion,
-    //     lugaresCerca: step2Data.lugaresCerca,
-    //     title: step2Data.title,
-    //     descripcionTotal: step2Data.descripcionTotal,
-    //     img: step3Data.img,
-    //   }),
-    // };
-    try {
-      const respAloj = await fetch("http://localhost:5500/api", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: step1Data.name,
-        lastName: step1Data.lastName,
-        dni: step1Data.dni,
-        email: step1Data.email,
-        cuilt: step1Data.cuilt,
-        telefono: step1Data.telefono,
-        tipoAlojamiento: step1Data.tipoAlojamiento,
-        cantDormitorios: step1Data.cantDormitorios,
-        cantBaños: step1Data.cantBaños,
-        precio: step1Data.precio,
-        barrio: step1Data.barrio,
-        calle: step1Data.calle,
-        equipamiento: step2Data.equipamiento,
-        servicios: step2Data.servicios,
-        proteccion: step2Data.proteccion,
-        lugaresCerca: step2Data.lugaresCerca,
-        title: step2Data.title,
-        descripcionTotal: step2Data.descripcionTotal,
-        img: step3Data.img,
-      }),
-    });
-    console.log('Respuesta del servidor',respAloj);
     
-    const responseAloj = await respAloj.json();
-    console.log(responseAloj)
-    // para que navegue a la pagina de admin despues que registre los datos
-    navigate("/adminAloj");
-    } catch (error) {
-      alert('No se pudo crear el Alojamiento');
-      console.error(error);
-    }
-    
-    // const alojamiento = fetch("http:5500/api/Alojamiento", options);
-    // para que navegue a la pagina de admin despues que registre los datos
-    // console.log(alojamiento);
-    // navigate("/adminAloj");
-  };
+  console.log(step1Data, step2Data);
+  
+
 
   //almacena una url de imagen predeterminada (es la quetiene la camarita)
   const [noImage, setNoImage] = useState("img/Cloud.jpg");
@@ -144,6 +52,10 @@ export const Step3 = () => {
     imageInput.value = ""; // Clear the file input
   };
 
+
+  
+
+  
   return (
     <>
       {stepsCounter()}
@@ -155,8 +67,11 @@ export const Step3 = () => {
           <input
             className="imput-img"
             type="file"
-            name="img"
-            onChange={uploadItem}
+            name="filename"
+            value={step3Data.filename}
+            onChange={
+              uploadItem
+            }
             ref={(input) => setImageInput(input)}
             multiple
           />
@@ -185,7 +100,7 @@ export const Step3 = () => {
             placeholder="Guardar y Continuar"
             value="Guadar y Continuar"
             required
-            onClick={handleButtonClick}
+            onClick={nextStep}
           />
 
           {/*anterior */}

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useFormContext } from "../../context/FormContext";
 
+
 export const Step1 = () => {
-  const { step1Data, setStep1Data, nextStep, stepsCounter } = useFormContext();
+  const {step1Data ,setStep1Data, nextStep, stepsCounter } = useFormContext();
+   
+
 
   return (
     <>
@@ -66,7 +69,7 @@ export const Step1 = () => {
           {/*cuit/cul */}
           <input
             type="number"
-            id="cuilt"
+            id="numberCui"
             className="fullwidth campo"
             placeholder="Ingrese CUIL/T"
             required
@@ -110,8 +113,8 @@ export const Step1 = () => {
               {/*opcion por defecto */}
               Tipo de Alojamiento
             </option>
-            <option value="2">Casa</option>
-            <option value="3">Departamento</option>
+            <option value="1">Casa</option>
+            <option value="2">Departamento</option>
           </select>
           {/**Input para cargar cantidad de dormitorios */}
           <input
@@ -132,7 +135,7 @@ export const Step1 = () => {
           {/*input cant de baños en el alojamiento */}
           <input
             type="number"
-            id="cantBaños"
+            id="cantBanios"
             className="fullwidth campo"
             placeholder="cantidad Baños"
             required
@@ -151,6 +154,10 @@ export const Step1 = () => {
             step="0.01"
             placeholder="Ingrese el costo $"
             required
+            value={step1Data.precio}
+            onChange={(e) =>
+              setStep1Data({ ...step1Data, precio: e.target.value })
+            }
           ></input>
 
           <br />

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-export const router = Router();
+ const routerAloj = Router();
 
 import {
   CtrlAllIdAlojamiento,
@@ -12,14 +12,16 @@ import {
 
 //administrar alojamiento
 
-router.get("/", CtrlGetAllAlojamiento);
+routerAloj.get("/api/alojamiento", CtrlGetAllAlojamiento);
 
-router.get("/:Alojamientoid", CtrlAllIdAlojamiento);
+routerAloj.get("/api/alojamiento/:id", CtrlAllIdAlojamiento);
 
 //crear un alojamiento
 
-router.post("/", CtrlCreateAlojamiento);
+routerAloj.post("/api/alojamiento", CtrlCreateAlojamiento);
 
-router.delete("/:Alojamientoid", CtrlDeleteAlojamiento);
+routerAloj.delete("/api/alojamiento/:id", CtrlDeleteAlojamiento);
 
-router.put("/:Alojamientoid", CtrlUpdateAlojamiento);
+routerAloj.put("/api/alojamiento/:id", CtrlUpdateAlojamiento);
+
+export{routerAloj};

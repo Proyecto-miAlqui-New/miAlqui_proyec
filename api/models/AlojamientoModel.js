@@ -26,6 +26,7 @@ export const AlojamientoModel = sequelize.define(
     lugaresSercanos: DataTypes.TEXT,
     tituloAlojamiento: DataTypes.STRING,
     descripcion: DataTypes.TEXT,
+    converImage: DataTypes.STRING,
     
   },
   {
